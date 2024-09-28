@@ -19,9 +19,9 @@ export default {
 <style scoped>
 .hero {
   text-align: center;
-  padding: 100px;
-  /*background: url('/assets/hero-bg.jpg') no-repeat center center;
-  background-size: cover;*/
+  padding: 305px;
+  background: url('@/assets/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
 }
 h2 {
   color: black;
