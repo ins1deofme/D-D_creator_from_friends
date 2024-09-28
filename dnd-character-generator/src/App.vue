@@ -32,6 +32,11 @@ body {
     margin: 0; /* Убираем отступы по умолчанию */
     padding: 0; /* Убираем внутренние отступы по умолчанию */
     width: 100%; /* Устанавливаем ширину */
+    height: 100vh;
+    background: url('@/assets/hero-bg.jpg') no-repeat center center; /* Устанавливаем фоновое изображение */
+    background-size: cover;
+    background-attachment: fixed;
+    
 }
 #app {
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/

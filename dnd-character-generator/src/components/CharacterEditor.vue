@@ -27,6 +27,7 @@
   </script>
   
 <style scoped>
+
 .editor-container {
   max-width: 400px;
   margin: auto;
@@ -34,6 +35,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  margin-top: 200px;
 }
 
 .editor-form {

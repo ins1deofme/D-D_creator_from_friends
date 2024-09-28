@@ -17,6 +17,7 @@
   </script>
   
   <style scoped>
+  
   .header {
     background-color:rgba(44, 62, 80, 0.35);;
     color: white;
