@@ -2,10 +2,7 @@
     <header class="header">
       <h1>Генератор персонажей D&D</h1>
       <nav>
-        <router-link to="/">Главная</router-link>
-        <router-link to="/rules">Правила</router-link>
-        <router-link to="/register">Регистрация</router-link>
-        <router-link to="/editor">Редактор персонажа</router-link>
+        <router-link to="/">Главная</router-link>          
       </nav>
     </header>
   </template>
