@@ -20,6 +20,7 @@
           <input type="text" v-model="username" placeholder="Введите имя пользователя" required />
           <input type="password" v-model="password" placeholder="Введите пароль" required />
           <button type="submit">Зарегистрироваться</button>
+          <button type="login">Авторизоваться</button>
         </form>
       </div>
 
