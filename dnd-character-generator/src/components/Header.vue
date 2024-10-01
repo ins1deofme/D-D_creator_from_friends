@@ -18,7 +18,8 @@
   .header {
     background-color:rgba(44, 62, 80, 0.35);;
     color: white;
-    padding: 10px;
+    padding: 0px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;

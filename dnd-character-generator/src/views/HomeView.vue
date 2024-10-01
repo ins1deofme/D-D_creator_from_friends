@@ -73,7 +73,7 @@ export default {
 /* Контейнер для всех колонок */
 .container {
   position: relative;
-  top: 110px;
+  top: 60px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -85,9 +85,10 @@ export default {
   width: 25%;
   height: calc(100vh - 150px); /* Высота списка на всю высоту экрана, с учетом хедера */
   overflow-y: auto;
-  background-color: rgba(44, 62, 80, 0.7);
+  background-color: rgba(238, 235, 235, 0.35);
   padding: 20px;
-  color: white;
+  color: rgb(103, 74, 10);
+  font-size: 20px;
 }
 
 /* Центральная колонка: Регистрация и редактор */
@@ -123,6 +124,7 @@ export default {
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow-y: auto;
+  font-size: 18px;
 }
 
 /* Стили для формы */
