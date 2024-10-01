@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <!-- Левая колонка: Список персонажей -->
     <div class="left-container">
       <h3>Список персонажей</h3>
       <ul>
@@ -10,16 +11,9 @@
       </ul>
     </div>
 
+    <!-- Центральная колонка: Регистрация и редактор -->
     <div class="main-content">
-      <div class="editor-container">
-        <h2>Редактор персонажа</h2>
-        <form @submit.prevent="createCharacter" class="editor-form">
-          <input type="text" v-model="characterName" placeholder="Имя персонажа" required />
-          <input type="text" v-model="characterClass" placeholder="Класс персонажа" required />
-          <button type="submit">Создать персонажа</button>
-        </form>
-      </div>
-
+      <!-- Регистрация -->
       <div class="registration-container">
         <h2>Регистрация</h2>
         <form @submit.prevent="registerUser" class="registration-form">
@@ -29,10 +23,21 @@
         </form>
       </div>
 
-      <div class="rules-container">
-        <h2>Правила генерации персонажа</h2>
-        <p>блаблаблаблаблаблаблаблаблаблабла...</p>
+      <!-- Редактор персонажа -->
+      <div class="editor-container">
+        <h2>Редактор персонажа</h2>
+        <form @submit.prevent="createCharacter" class="editor-form">
+          <input type="text" v-model="characterName" placeholder="Имя персонажа" required />
+          <input type="text" v-model="characterClass" placeholder="Класс персонажа" required />
+          <button type="submit">Создать персонажа</button>
+        </form>
       </div>
+    </div>
+
+    <!-- Правая колонка: Правила генерации -->
+    <div class="rules-container">
+      <h2>Правила генерации персонажа</h2>
+      <p>Здесь будут правила...</p>
     </div>
   </div>
 </template>
@@ -65,81 +70,62 @@ export default {
 </script>
 
 <style scoped>
-
+/* Контейнер для всех колонок */
 .container {
   position: relative;
   top: 110px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
 }
 
+/* Левая колонка: Список персонажей */
 .left-container {
-  top: 220px;
   width: 25%;
-  
+  height: calc(100vh - 150px); /* Высота списка на всю высоту экрана, с учетом хедера */
   overflow-y: auto;
   background-color: rgba(44, 62, 80, 0.7);
   padding: 20px;
   color: white;
 }
 
-.left-container ul {
-  list-style: none;
-  padding: 0;
-}
-
-.left-container li {
-  margin-bottom: 15px;
-}
-
-.left-container li p {
-  font-size: 12px;
-  margin: 0;
-  color: #ccc;
-}
-
-.left-container a {
-  color: #f39c12;
-  text-decoration: none;
-}
-
-.left-container a:hover {
-  text-decoration: underline;
-}
-
+/* Центральная колонка: Регистрация и редактор */
 .main-content {
-  width: 70%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.editor-container,
-.registration-container,
-.rules-container {
+/* Регистрация */
+.registration-container {
   background-color: rgba(248, 249, 250, 0.35);
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
 
+/* Редактор персонажа */
 .editor-container {
-  flex-grow: 1;
+  background-color: rgba(248, 249, 250, 0.35);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
-.registration-container {
-  flex-grow: 1;
-}
-
+/* Правая колонка: Правила генерации */
 .rules-container {
-  flex-grow: 2;
-  max-height: 300px;
+  width: 25%;
+  height: calc(100vh - 150px); /* Высота контейнера на всю высоту экрана, с учетом хедера */
+  background-color: rgba(248, 249, 250, 0.35);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   overflow-y: auto;
 }
 
+/* Стили для формы */
 .editor-form,
 .registration-form {
   display: flex;
@@ -147,7 +133,6 @@ export default {
 }
 
 input {
-  font-family: 'MyFont', sans-serif;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -155,7 +140,6 @@ input {
 }
 
 button {
-  font-family: 'MyFont', sans-serif;
   padding: 10px;
   background-color: #28a745;
   color: white;

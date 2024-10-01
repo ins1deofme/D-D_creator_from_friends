@@ -1,4 +1,3 @@
-<!-- src/views/CharacterView.vue -->
 <template>
     <div class="character">
       <h2>{{ character.name }}</h2>
