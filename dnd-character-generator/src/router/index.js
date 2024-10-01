@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-
+import CharacterView from '../components/CharacterView.vue';
 
 
 const routes = [
@@ -9,7 +9,11 @@ const routes = [
     name: 'Home',
     component: HomeView,
   },
-  
+  {
+    path: '/character/:id',
+    name: 'Character',
+    component: CharacterView, // Страница персонажа
+  },
  
   
 ];
