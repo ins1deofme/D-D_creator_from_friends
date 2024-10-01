@@ -27,7 +27,7 @@ export default {
     font-style: normal; /* Укажите стиль шрифта */
 }
 
-body {
+html, body {
     font-family: 'MyFont', sans-serif; /* Используем локальный шрифт */
     margin: 0; /* Убираем отступы по умолчанию */
     padding: 0; /* Убираем внутренние отступы по умолчанию */
