@@ -1,0 +1,65 @@
+body {
+    background-image: url('@/assets/bgdndv2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
+  
+  a {
+    color: #0074D9;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    background-image: url('@/assets/bgfon.jpg');
+    background-size:110%;
+    background-position: center;
+    width: 80%;
+    margin: 0 auto; /* Центрирует контейнер на странице */
+    max-width: 1200px; /* Максимальная ширина, чтобы предотвратить слишком большие экраны */
+    padding: 20px; /* Внутренние отступы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Небольшая тень для выделения */
+    background-color: #f8f9faf3; /* Светлый фон для контейнера */
+    border-radius: 2%;
+  }
+  .input-container {
+    display: flex;
+    flex-direction: column; /* Расположение элементов по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    margin-bottom: 20px; /* Отступ снизу между полями */
+}
+
+input, select {
+    width: 80%; /* Установка ширины полей на 80% */
+    max-width: 300px; /* Максимальная ширина полей */
+    padding: 10px; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Граница поля */
+    border-radius: 4px; /* Закругление углов */
+    font-size: 16px; /* Размер шрифта */
+}
+
+input:focus, select:focus {
+    border-color: #77581f77; /* Цвет границы при фокусе */
+    outline: none; /* Убираем стандартный контур */
+}
+  @font-face {
+    font-family: 'MyFont'; /* Имя шрифта, которое ты будешь использовать */
+    src: url('@/assets/fonts/equestria_cyrillic.eot'); /* IE9 Compat Modes */
+    src: url('@/assets/fonts/equestria_cyrillic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('@/assets/fonts/equestria_cyrillic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('@/assets/fonts/equestria_cyrillic.woff') format('woff'), /* Modern Browsers */
+         url('@/assets/fonts/equestria_cyrillic.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: normal; /* Укажите начертание шрифта */
+    font-style: normal; /* Укажите стиль шрифта */ 
+  }
+ 
+* {
+    font-family: 'MyFont', sans-serif;
+}

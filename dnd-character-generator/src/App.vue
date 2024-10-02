@@ -1,61 +1,46 @@
 <template>
+  <div class="container">
   <div id="app">
-  <Header />
-  <router-view/>
+    <SiteHeader />
+    <div class="main-content">
+      <CharacterEditor @add-character="addCharacter" />
+      <UserRegister />
+      <CharacterList :characters="characters" />
+      <CharacterRules />
+    </div>
+    <ScrollToTop /> <!-- Добавляем компонент кнопки прокрутки -->
+  </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
+import SiteHeader from './components/SiteHeader.vue';
+import CharacterEditor from './components/CharacterEditor.vue';
+import UserRegister from './components/UserRegister.vue';
+import CharacterList from './components/CharacterList.vue';
+import CharacterRules from './components/CharacterRules.vue';
+import ScrollToTop from './components/ScrollToTop.vue'; // Импортируем кнопку прокрутки
+
 export default {
-  name: 'App',
   components: {
-    Header, // Регистрация компонента
+    SiteHeader,
+    CharacterEditor,
+    UserRegister,
+    CharacterList,
+    CharacterRules,
+    ScrollToTop, // Добавляем компонент кнопки
+  },
+  data() {
+    return {
+      characters: [],
+    };
+  },
+  methods: {
+    addCharacter(character) {
+      this.characters.push(character);
+    },
   },
 };
 </script>
 
-<style>
-@font-face {
-    font-family: 'MyFont'; /* Имя шрифта, которое ты будешь использовать */
-    src: url('@/assets/fonts/equestria_cyrillic.eot'); /* IE9 Compat Modes */
-    src: url('@/assets/fonts/equestria_cyrillic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('@/assets/fonts/equestria_cyrillic.woff2') format('woff2'), /* Super Modern Browsers */
-         url('@/assets/fonts/equestria_cyrillic.woff') format('woff'), /* Modern Browsers */
-         url('@/assets/fonts/equestria_cyrillic.ttf') format('truetype'); /* Safari, Android, iOS */
-    font-weight: normal; /* Укажите начертание шрифта */
-    font-style: normal; /* Укажите стиль шрифта */
-}
-
-html, body {
-    font-family: 'MyFont', sans-serif; /* Используем локальный шрифт */
-    margin: 0; /* Убираем отступы по умолчанию */
-    padding: 0; /* Убираем внутренние отступы по умолчанию */
-    width: 100%; /* Устанавливаем ширину */
-    height: 100vh;
-    background: url('@/assets/hero-bg.jpg') no-repeat center center; /* Устанавливаем фоновое изображение */
-    background-size: cover;
-    background-attachment: fixed;
-    
-}
-#app {
-  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style src="./assets/styles.css"></style>

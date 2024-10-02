@@ -1,10 +1,9 @@
 <template>
-    <div class="left-container">
-      <h3>Список персонажей</h3>
+    <div id="characters" class="section">
+      <h2>Готовые персонажи</h2>
       <ul>
-        <li v-for="(character, index) in characters" :key="index">
-          <router-link :to="'/character/' + character.id">{{ character.name }}</router-link>
-          <p>{{ character.class }}</p>
+        <li v-for="character in characters" :key="character.name">
+          <router-link :to="{ name: 'character-details', params: { name: character.name } }">{{ character.name }}</router-link> - {{ character.class }}
         </li>
       </ul>
     </div>
@@ -12,24 +11,23 @@
   
   <script>
   export default {
-    props: ['characters']
+    props: ['characters'],
   };
   </script>
   
   <style scoped>
-  /* Стили для списка персонажей */
-.left-container {
-  width: 100%;
-  height: calc(100vh - 150px); /* Высота списка на всю высоту экрана, с учетом хедера */
-  position: relative; /* Для возможности смещения от верхней части экрана */
-  top: 50px; /* Отступ от верха экрана (настраиваемый) */
-  overflow-y: auto; /* Вертикальная прокрутка при переполнении */
-  background-color: rgba(238, 235, 235, 0.35);
-  padding: 20px;
-  color: rgb(103, 74, 10);
-  font-size: 20px;
-  
-}
-
+  .section {
+    background-color: #77581f77;
+    color: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    margin: 10px 0;
+  }
   </style>
   

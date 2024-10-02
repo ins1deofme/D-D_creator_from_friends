@@ -1,63 +1,55 @@
 <template>
-    <div class="editor-container">
+  <div class="input-container">
+    <div id="editor" class="section">
       <h2>Редактор персонажа</h2>
-      <form @submit.prevent="createCharacter" class="editor-form">
-        <input type="text" v-model="characterName" placeholder="Имя персонажа" required />
-        <input type="text" v-model="characterClass" placeholder="Класс персонажа" required />
-        <button type="submit">Создать персонажа</button>
+      <form @submit.prevent="addCharacter">
+        <input v-model="name" placeholder="Имя персонажа" required />
+        <select v-model="selectedClass">
+          <option disabled value="">Выберите класс</option>
+          <option v-for="classItem in classes" :key="classItem">{{ classItem }}</option>
+        </select>
+        <button type="submit">Добавить персонажа</button>
       </form>
     </div>
+  </div>
   </template>
   
   <script>
   export default {
     data() {
       return {
-        characterName: '',
-        characterClass: ''
+        name: '',
+        selectedClass: '',
+        classes: ['Воин', 'Маг', 'Лучник'],
       };
     },
     methods: {
-      createCharacter() {
-        this.$emit('create-character', { name: this.characterName, class: this.characterClass });
-        this.characterName = '';
-        this.characterClass = '';
-      }
-    }
+      addCharacter() {
+        this.$emit('add-character', { name: this.name, class: this.selectedClass });
+        this.name = '';
+        this.selectedClass = '';
+      },
+    },
   };
   </script>
   
   <style scoped>
-  /* Стили для редактора персонажа */
-.editor-container {
-  margin-top: 0%; /* Позиция контейнера от верхней части экрана */
-  background-color: rgba(248, 249, 250, 0.35);
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.editor-form {
-  display: flex;
-  flex-direction: column; /* Расположение полей ввода в столбик */
-  gap: 10px; /* Промежуток между полями */
-}
-
-input, button {
-  font-family: 'MyFont', sans-serif;
-}
-
-button {
-  background-color: rgb(198, 152, 14);
-  padding: 10px; /* Паддинг для кнопки */
-  border: none; /* Убираем границу */
-  border-radius: 4px; /* Округление углов */
-  cursor: pointer; /* Указатель для интерактивности */
-}
-
-button:hover {
-  background-color: rgb(178, 135, 12); /* Цвет кнопки при наведении */
-}
-
+  .section {
+    background-color: #77581f77;
+    color: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5%;
+  }
+  input, select, button {
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%;
+  }
+  button {
+    background-color: #77581fd5;
+    color: white;
+    border: none;
+  }
   </style>
   

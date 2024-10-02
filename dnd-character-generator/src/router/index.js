@@ -1,22 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '@/views/HomeView.vue';
-import CharacterView from '@/components/CharacterView.vue';
+import Home from '../App.vue';
+import CharacterDetails from '../components/CharacterDetails.vue';
 
 const routes = [
-  { path: '/', name: 'Home', component: HomeView },
-  {
-    path: '/character/:id',
-    name: 'CharacterView',
-    component: CharacterView,
-    props: route => ({
-      character: HomeView.data().characters.find(c => c.id === parseInt(route.params.id, 10))
-    })
-  }
+  { path: '/', component: Home },
+  { path: '/character/:name', name: 'character-details', component: CharacterDetails },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
 
 export default router;
