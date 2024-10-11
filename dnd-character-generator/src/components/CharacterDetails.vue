@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h2>{{ characterName }}</h2>
     <p>Описание персонажа...</p>
+    <h2>{{ characterName }}</h2> 
     <router-link to="/">Назад к главному меню</router-link>
   </div>
 </template>

@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import CharacterDetails from '../components/CharacterDetails.vue';
-import App from '../App.vue'; // Если у вас есть компонент App.vue
+import MainPage from '@/pages/MainPage.vue';
 
 const routes = [
   {
     path: '/',
-    component: App, // Укажите компонент, который будет отображаться на главной странице
+    component: MainPage , // Укажите компонент, который будет отображаться на главной странице
   },
   {
     path: '/character/:name', // Путь с параметром name

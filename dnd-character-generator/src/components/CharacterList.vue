@@ -3,9 +3,13 @@
     <h2>Готовые персонажи</h2>
     <ul>
       <li v-for="character in characters" :key="character.name">
-        <router-link :to="{ name: 'character-details', params: { name: character.name } }">
-          {{ character.name }}
-        </router-link> - {{ character.class }}
+        <span 
+        class="section-link"
+          :to="{ name: 'character-details', params: { name: character.name } }"
+         v-text="character.name"
+         @click="to(character.name)"
+          />
+           - {{ character.class }}
       </li>
     </ul>
   </div>
@@ -19,6 +23,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    to(name) {
+      this.$router.push(`/character/${name}`);
+    }
+  }
 };
 </script>
 
@@ -28,6 +37,9 @@ export default {
   color: #ffffff;
   padding: 20px;
   margin: 20px 0;
+}
+.section-link {
+  cursor: pointer;
 }
 ul {
   list-style: none;
