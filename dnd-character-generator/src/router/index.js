@@ -1,12 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import CharacterDetails from '../components/CharacterDetails.vue';
+import App from '../App.vue'; // Если у вас есть компонент App.vue
 
 const routes = [
   {
-    path: '/character/:name',
-    name: 'character-details',
-    component: CharacterDetails,
-    props: (route) => ({ character: JSON.parse(route.params.character) }), // Передаем как JSON
+    path: '/',
+    component: App, // Укажите компонент, который будет отображаться на главной странице
+  },
+  {
+    path: '/character/:name', // Путь с параметром name
+    name: 'character-details', // Укажите имя маршрута
+    component: CharacterDetails, // Компонент, который будет отображаться
   },
   // Другие маршруты...
 ];

@@ -1,30 +1,23 @@
 <template>
-  <div class="section">
-    <h2>{{ character.name }}</h2>
-    <p>Описание персонажа: {{ character.description }}</p>
+  <div class="container">
+    <h2>{{ characterName }}</h2>
+    <p>Описание персонажа...</p>
     <router-link to="/">Назад к главному меню</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    character: {
-      type: Object,
-      required: true,
-    },
-  },
   computed: {
-    // Удаляем этот код, так как он вызывает дублирование
-    // character() {
-    //   return this.$route.params.character;
-    // },
+    characterName() {
+      return this.$route.params.name; // Получаем имя персонажа из параметров маршрута
+    },
   },
 };
 </script>
 
 <style scoped>
-.section {
+.container {
   background-color: #77581f77;
   color: #ffffff;
   padding: 20px;

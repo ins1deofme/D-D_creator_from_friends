@@ -5,8 +5,7 @@
       <li v-for="character in characters" :key="character.name">
         <router-link :to="{ name: 'character-details', params: { name: character.name } }">
           {{ character.name }}
-        </router-link>
-        <button @click="viewCharacter(character.name)">Просмотреть</button>
+        </router-link> - {{ character.class }}
       </li>
     </ul>
   </div>
@@ -18,11 +17,6 @@ export default {
     characters: {
       type: Array,
       required: true,
-    },
-  },
-  methods: {
-    viewCharacter(characterName) {
-      this.$emit('view-character', characterName);
     },
   },
 };

@@ -23,7 +23,7 @@ export default {
   props: {
     characters: {
       type: Array,
-      required: true, // Обозначаем, что пропс обязательный
+      required: true,
     },
   },
   data() {

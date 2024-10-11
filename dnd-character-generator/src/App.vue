@@ -1,14 +1,16 @@
 <template>
-  <div id="app">
-    <SiteHeader />
-    <div class="main-content">
-      <CharacterEditor @add-character="addCharacter" />
-      <UserRegister />
-      <CharacterList :characters="characters" @view-character="viewCharacter" />
-      <CharacterRules />
-      <router-view />
+  <div class="container">
+    <div id="app">
+      <SiteHeader />
+      <div class="main-content">
+        <!-- Передаем пропс characters в CharacterEditor -->
+        <CharacterEditor :characters="characters" @add-character="addCharacter" />
+        <UserRegister />
+        <CharacterList :characters="characters" />
+        <CharacterRules />
+      </div>
+      <ScrollToTop />
     </div>
-    <ScrollToTop />
   </div>
 </template>
 
@@ -38,10 +40,6 @@ export default {
     addCharacter(character) {
       this.characters.push(character); // Добавление нового персонажа в массив
     },
-    viewCharacter(characterName) {
-    const character = this.characters.find(c => c.name === characterName);
-    this.$router.push({ name: 'character-details', params: { character } });
-  },
   },
 };
 </script>
