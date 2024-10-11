@@ -34,6 +34,7 @@
   
   <style scoped>
   .scroll-to-top {
+    
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -55,5 +56,5 @@
   .scroll-to-top:focus {
     outline: none;
   }
-  </style>
+   </style>
   

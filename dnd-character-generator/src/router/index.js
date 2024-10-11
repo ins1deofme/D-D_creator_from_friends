@@ -1,10 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../App.vue';
 import CharacterDetails from '../components/CharacterDetails.vue';
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/character/:name', name: 'character-details', component: CharacterDetails },
+  {
+    path: '/character/:name',
+    name: 'character-details',
+    component: CharacterDetails,
+    props: (route) => ({ character: JSON.parse(route.params.character) }), // Передаем как JSON
+  },
+  // Другие маршруты...
 ];
 
 const router = createRouter({

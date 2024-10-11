@@ -1,15 +1,14 @@
 <template>
-  <div class="container">
   <div id="app">
     <SiteHeader />
     <div class="main-content">
       <CharacterEditor @add-character="addCharacter" />
       <UserRegister />
-      <CharacterList :characters="characters" />
+      <CharacterList :characters="characters" @view-character="viewCharacter" />
       <CharacterRules />
+      <router-view />
     </div>
-    <ScrollToTop /> <!-- Добавляем компонент кнопки прокрутки -->
-  </div>
+    <ScrollToTop />
   </div>
 </template>
 
@@ -19,7 +18,7 @@ import CharacterEditor from './components/CharacterEditor.vue';
 import UserRegister from './components/UserRegister.vue';
 import CharacterList from './components/CharacterList.vue';
 import CharacterRules from './components/CharacterRules.vue';
-import ScrollToTop from './components/ScrollToTop.vue'; // Импортируем кнопку прокрутки
+import ScrollToTop from './components/ScrollToTop.vue';
 
 export default {
   components: {
@@ -28,17 +27,21 @@ export default {
     UserRegister,
     CharacterList,
     CharacterRules,
-    ScrollToTop, // Добавляем компонент кнопки
+    ScrollToTop,
   },
   data() {
     return {
-      characters: [],
+      characters: [], // Массив для хранения персонажей
     };
   },
   methods: {
     addCharacter(character) {
-      this.characters.push(character);
+      this.characters.push(character); // Добавление нового персонажа в массив
     },
+    viewCharacter(characterName) {
+    const character = this.characters.find(c => c.name === characterName);
+    this.$router.push({ name: 'character-details', params: { character } });
+  },
   },
 };
 </script>
